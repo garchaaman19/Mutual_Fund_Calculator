@@ -69,7 +69,7 @@ class Calculate(Resource):
 class FundNames(Resource):
     def get(self):
         conn = db()
-        fund_names=conn.execute("SELECT DISTINCT scheme_name FROM tbl")
+        fund_names=conn.execute("SELECT DISTINCT scheme_name FROM tbl WHERE scheme_name is not null; ")
         fund_names=fund_names.fetchall()
         print(fund_names)
         length=len(fund_names)
