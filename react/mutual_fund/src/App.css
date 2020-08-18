@@ -1,0 +1,35 @@
+.App {
+  text-align: center;
+}
+
+table,th,td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+  width:30%;
+  align-content: center;
+  align-items: center;
+}
+th{
+  color: aqua;
+  background-color: black;
+  border: 1px solid wheat;
+}
+
+nav{
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  min-height: 10vh;
+  background: gray;
+  color: wheat;
+}
+
+.nav-links{
+   width:10%;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  list-style: none;
+
+}

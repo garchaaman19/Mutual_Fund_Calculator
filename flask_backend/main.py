@@ -4,11 +4,12 @@ from sqlite_file import *
 from flask import  Flask
 from flask_restplus import Api
 from flask_script import Manager
+from flask_cors import CORS
 
 
 
 app=Flask(__name__)
-
+CORS(app)
 api = Api(app, version='1.0', title='API Gateway', description='Social Exchange API')
 
 mutual_fund_api = api.namespace(
@@ -39,7 +40,7 @@ class Search(Resource):
                     'date':obj[7]
                  }
                 result.append(data)
-            return jsonify(result)
+            return jsonify({"data":result})
 
 @mutual_fund_api.route('/calculate')
 class Calculate(Resource):
