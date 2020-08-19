@@ -17,10 +17,11 @@ pip install -r requirements.txt
 cd in react/mutual_fund 
 
 ```bash
-npm install ```
+npm install
+```
 
 
-### How to run 
+### Usage
 You need to start the backend server by running comman *python main.py runserver*
 Then you need to start the react app by npm start command.
 
