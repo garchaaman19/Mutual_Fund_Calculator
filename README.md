@@ -7,7 +7,7 @@ Users can also calculate the number of returns they would have recieved if had t
 
 ## Installation
 first cd into flask_backend
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install requirements.txt.
 
 ```bash
 pip install -r requirements.txt
