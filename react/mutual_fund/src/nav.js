@@ -9,7 +9,6 @@ function Nav() {
 <h2>AXIS MUTUAL FUND HOUSE</h2>
         <h3>
             <ul className="nav-links">
-            <li>Home</li>
              <Link to='/history'>
                 <li>Mutual Fund Calculator</li>
              </Link>

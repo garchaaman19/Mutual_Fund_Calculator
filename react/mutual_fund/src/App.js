@@ -12,7 +12,6 @@ class App extends Component {
             <Nav/>
             <Route path="/history" component={History}/>
           </div>
-
             <div class="disclamer">
                 <marquee><strong>Mutual Fund investments are subject to market risk. Please read All scheme-related document carefully before investing’.</strong></marquee>
             </div>
