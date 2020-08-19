@@ -1,5 +1,5 @@
 # Mutual Fund Calculator
-<img src="https://img.shields.io/badge/Maintained-Yes-green"> <img src="https://img.shields.io/github/issues/garchaaman19/Stack_overflow_app"> <img src="https://img.shields.io/badge/Technology-Django-brightgreen">
+<img src="https://img.shields.io/badge/Maintained-Yes-green"> <img src="https://img.shields.io/github/issues/garchaaman19/Stack_overflow_app"> <img src="https://img.shields.io/badge/Technology-Flask-React-brightgreen">
 
 A Mutual Fund History & Calculator app made with Flask and React. Currently it supports only Axis Mutual Fund, but with next release I will be adding options for more fund houses.
 Users can view history of all schemes/funds of Axis AMC.
