@@ -1,3 +1,5 @@
+import math
+
 from flask import request,jsonify
 from flask_restplus import Resource,Namespace
 from sqlite_file import *
@@ -10,11 +12,11 @@ from flask_cors import CORS
 
 app=Flask(__name__)
 CORS(app)
-api = Api(app, version='1.0', title='API Gateway', description='Social Exchange API')
+api = Api(app, version='1.0', title='API Gateway', description='Mutual Fund API')
 
 mutual_fund_api = api.namespace(
     'mf', description="Mutual Fund")
-#mutual_fund_api=Namespace('mf',description="API for mutual fund calculator")
+
 
 @mutual_fund_api.route('/search')
 class Search(Resource):
@@ -39,47 +41,58 @@ class Search(Resource):
                      'nav':obj[4],
                     'date':obj[7]
                  }
+                sorted(data.keys())
                 result.append(data)
             return jsonify({"data":result})
 
 @mutual_fund_api.route('/calculate')
 class Calculate(Resource):
     def get(self):
+
         fund_name=request.args.get('fund_name')
         amount= request.args.get('amount')
         date=request.args.get('date')
-        #data=request.json()
+        date=date.replace('}','')
+        units=0
+        result=[]
         if amount is not None and date is not None:
             conn = db()
             nav= conn.execute("SELECT nav FROM TBL WHERE scheme_name like '%{}%' AND  scheme_date like '%{}%' ".format(fund_name,date))
             nav=nav.fetchone()
             if nav is not None:
                 units=int(amount)/int(nav[0])
+            else:
+                return jsonify({
+                    "message":"No records found for the selected date"
+                })
             current_nav=conn.execute("SELECT nav FROM TBL WHERE scheme_name like '%{}%' AND  scheme_date like '%{}%' ".format(fund_name,'14-Aug-2020'))
             current_nav=current_nav.fetchone()
             if current_nav is not None:
                 current_value=int(units)*int(current_nav[0])
-            return {
-                'current_value':current_value,
-                'units':units,
-                'code':200
+            units=int(units)
+            data={
+                "units":units,
+                "current_value":current_value
             }
-
+            result.append(data)
+            return jsonify({"data":result})
+        return jsonify({
+            "message":"Invalid Entry, No records found"
+        })
 @mutual_fund_api.route('/all_funds')
 class FundNames(Resource):
     def get(self):
+        print(request)
         conn = db()
         fund_names=conn.execute("SELECT DISTINCT scheme_name FROM tbl WHERE scheme_name is not null; ")
         fund_names=fund_names.fetchall()
-        print(fund_names)
-        length=len(fund_names)
         result=[]
         for i in fund_names:
             data={
                 'scheme_name':i[0]
             }
             result.append(data)
-        return jsonify({'result':result})
+        return jsonify({'data':result})
 
 
 

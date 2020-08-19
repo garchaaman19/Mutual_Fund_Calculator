@@ -20,9 +20,9 @@ nav{
   display: flex;
   justify-content:space-around;
   align-items: center;
-  min-height: 10vh;
+  min-height: 12vh;
   background: gray;
-  color: wheat;
+  color: black;
 }
 
 .nav-links{
@@ -32,4 +32,29 @@ nav{
   align-items: center;
   list-style: none;
 
+}
+.calculate{
+  align:right;
+  align-items: center;
+  position:absolute;
+  top:35%;
+  right:10%;
+
+}
+.investment-report{
+  align:right;
+  align-items: center;
+  position:absolute;
+  top:55%;
+  right:10%;
+}
+
+#fund-select{
+ width:30%;
+}
+
+li{
+    right:10%;
+  align:right;
+  align-items: center;
 }
