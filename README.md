@@ -8,7 +8,7 @@ cd in flask_backend and then run pip -r requirements.txt
 cd in react/mutual_fund to install the package.json files.
 
 ### How to run 
-You need to start the backend server by running python main.py runserver
+You need to start the backend server by running comman *python main.py runserver*
 Then you need to start the react app by npm start command.
 
 #### Instructions 
